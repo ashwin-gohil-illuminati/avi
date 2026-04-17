@@ -38,6 +38,18 @@ Matches discovered services with "High-Value" scripts (targeted at `vuln`, `expl
 
 ---
 
+## 💻 Core Logic & Command Breakdown
+
+| Phase | Command / Logic | Purpose in Script |
+| :--- | :--- | :--- |
+| **Sanitization** | `re.match(regexCode, input_ip)` | Enforces strict CIDR notation and valid octet ranges. |
+| **Discovery** | `arp-scan [input_ip]` | Rapid local network host discovery via ARP requests. |
+| **Enumeration** | `nmap -sV --top-ports 100 --open` | Identifies service versions to minimize network footprint. |
+| **Indexing** | `Path(scripts_path).glob("*.nse")` | Native Python filesystem navigation for metadata parsing. |
+| **Execution** | `nmap -p [port] --script [script]` | Executes the surgical strike identified by the Matchmaker logic. |
+
+---
+
 ## 🚀 Usage
 
 > [!IMPORTANT]
