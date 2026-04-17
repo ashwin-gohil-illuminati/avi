@@ -68,8 +68,8 @@ Matches discovered services with "High-Value" scripts (targeted at `vuln`, `expl
 ### Execution
 ```bash
 # Clone the repository
-git clone [https://github.com/yourusername/avi-interrogator.git](https://github.com/yourusername/avi-interrogator.git)
-cd avi-interrogator
+git clone [https://github.com/ashwin-gohil-illuminati/avi.git]
+cd avi
 
 # Run the scanner
 sudo python3 ReconnaissanceMapper.py 192.168.1.0/24
