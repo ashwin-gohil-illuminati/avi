@@ -71,5 +71,7 @@ sudo python3 avi_scanner.py 192.168.1.0/24
 
 ---
 
+## ⚖️ Ethics & Legal Disclosure
+
 > [!WARNING]
 > This tool is for authorized ethical hacking and educational purposes only. Unauthorized scanning of networks you do not own is illegal and unethical.
