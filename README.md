@@ -1,21 +1,58 @@
-AVI: Automated Vulnerability Interrogator
-AVI is a smart security scanner that bridges the gap between finding a device and finding a hole. Instead of just telling you a port is open, AVI automatically consults its internal "Library" to find and fire the exact script needed to test for vulnerabilities.
+# 🛡️ AVI: Automated Vulnerability Interrogator
 
-The Mission
-Manual scanning is slow. Scanning everything is noisy. AVI automates the middle ground: it identifies the service, picks the right weapon from Nmap's Scripting Engine (NSE), and generates a "Strike Plan" to get results fast.
+![Python](https://img.shields.io/badge/Language-Python%203.10%2B-blue)
+![Security](https://img.shields.io/badge/Field-Cybersecurity-red)
+![Tool](https://img.shields.io/badge/Tool-Nmap%20Automation-orange)
 
-How It Works (The 3-Step Flow)
-The Scout (Discovery): Scans the local network for live hosts using ARP and identifies exactly which services (like FTP, SSH, or HTTP) are running.
+**AVI** is a surgical security scanner designed to bridge the gap between "finding a device" and "finding a hole." Instead of simply listing open ports, AVI automatically consults its internal metadata library to identify and execute the exact scripts needed to prove vulnerabilities.
 
-The Librarian (Indexing): Crawls your system's Nmap script folder. It reads the metadata of every script to understand what it does and which service it targets.
+---
 
-The Interrogator (Execution): Matches the found services with "High-Value" scripts (like those for exploits or brute-forcing). It runs them surgically and extracts the proof of vulnerability for your final report.
+## 🚀 The Mission
+Manual scanning is tedious, and scanning with every available script creates too much noise. **AVI** automates the middle ground:
+* **Identifies** the live services.
+* **Consults** the Librarian for matching weapons.
+* **Executes** a targeted "Strike Plan" for high-speed, high-accuracy results.
 
-Key Features
-Zero Noise: Only runs scripts that match the detected service.
+---
 
-Smart Filtering: Prioritizes scripts tagged with vuln, exploit, auth, or brute.
+## ⚙️ How It Works: The 3-Step Flow
 
-Fail-Safe: Built-in timeouts and error handling so the script doesn't hang on a single stubborn target.
+### 1. The Scout (Discovery)
+Scans the local network for live hosts using **ARP** (via `arp-scan`). It bypasses the noise of dead IPs and identifies exactly which services (FTP, SSH, HTTP, etc.) are listening.
 
-Evidence Capture: Automatically pulls the "Shine" (vulnerability results) out of messy Nmap outputs.
+### 2. The Librarian (Indexing)
+Crawls the local system's Nmap Scripting Engine (NSE) directory. It parses script metadata to map specific scripts to their corresponding services and categories.
+
+### 3. The Interrogator (Execution)
+Matches discovered services with "High-Value" scripts (targeted at `vuln`, `exploit`, or `brute`). It runs them surgically and extracts the "Shine"—the proof of vulnerability—for the final report.
+
+---
+
+## 🛠️ Key Features
+
+- [x] **Zero Noise:** Only executes scripts matching the detected service.
+- [x] **Smart Filtering:** Automatically prioritizes high-impact tags (`vuln`, `exploit`, `auth`, `brute`).
+- [x] **Fail-Safe Logic:** Built-in 5-minute timeouts per strike and robust error handling to prevent hangs on stubborn targets.
+- [x] **Evidence Capture:** Intelligently scrapes raw Nmap output to isolate the specific "VULNERABLE" findings.
+
+---
+
+## 🚀 Usage
+
+> [!IMPORTANT]
+> This tool requires **Root/Sudo privileges** to perform ARP scans and execute advanced Nmap scripts.
+
+### Prerequisites
+* **Python 3.10+**
+* `nmap` and `arp-scan` installed on the host.
+* Target environment (e.g., specialized lab targets like *Tr0ll*).
+
+### Execution
+```bash
+# Clone the repository
+git clone [https://github.com/yourusername/avi-interrogator.git](https://github.com/yourusername/avi-interrogator.git)
+cd avi-interrogator
+
+# Run the scanner
+sudo python3 avi_scanner.py 192.168.1.0/24
