@@ -60,6 +60,11 @@ Matches discovered services with "High-Value" scripts (targeted at `vuln`, `expl
 * `nmap` and `arp-scan` installed on the host.
 * Target environment (e.g., specialized lab targets like *Tr0ll*).
 
+## ⚖️ Ethics & Legal Disclosure
+
+> [!WARNING]
+> This tool is for authorized ethical hacking and educational purposes only. Unauthorized scanning of networks you do not own is illegal and unethical.
+
 ### Execution
 ```bash
 # Clone the repository
@@ -67,11 +72,8 @@ git clone [https://github.com/yourusername/avi-interrogator.git](https://github.
 cd avi-interrogator
 
 # Run the scanner
-sudo python3 avi_scanner.py 192.168.1.0/24
+sudo python3 ReconnaissanceMapper.py 192.168.1.0/24
 
 ---
 
-## ⚖️ Ethics & Legal Disclosure
 
-> [!WARNING]
-> This tool is for authorized ethical hacking and educational purposes only. Unauthorized scanning of networks you do not own is illegal and unethical.
